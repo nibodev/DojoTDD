@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DojoTDD.Domain.Entities
+namespace DojoTDD.Domain.Dojo_2.Entities
 {
     public class Account
     {

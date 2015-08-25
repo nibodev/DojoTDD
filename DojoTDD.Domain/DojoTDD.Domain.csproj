@@ -43,6 +43,9 @@
     <Compile Include="Dojo_2\Entities\Account.cs" />
     <Compile Include="Dojo_2\Entities\Transaction.cs" />
     <Compile Include="Dojo_2\Interfaces\Specifications\ISpecification.cs" />
+    <Compile Include="Dojo_2\Services\Helpers\AccountServiceHelper.cs" />
+    <Compile Include="Dojo_2\Services\Specifications\AccountIsPossibleCredit.cs" />
+    <Compile Include="Dojo_2\Services\Specifications\AccountIsPossibleDebit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dojo_2\Interfaces\Repositories\IAccountRepository.cs" />
     <Compile Include="Dojo_2\Interfaces\Repositories\IBankStatementRepository.cs" />

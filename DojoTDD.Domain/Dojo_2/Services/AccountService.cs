@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
+using DojoTDD.Domain.Dojo_2.Entities;
+using DojoTDD.Domain.Dojo_2.Interfaces.Repositories;
+using DojoTDD.Domain.Dojo_2.Interfaces.Services;
 using DojoTDD.Domain.Dojo_2.Services.Helpers;
-using DojoTDD.Domain.Dojo_2.Services.Specifications;
-using DojoTDD.Domain.Entities;
-using DojoTDD.Domain.Repositories;
-using DojoTDD.Domain.Services.Specifications;
-using Transaction = DojoTDD.Domain.Entities.Transaction;
+using Transaction = DojoTDD.Domain.Dojo_2.Entities.Transaction;
 
-namespace DojoTDD.Domain.Services
+namespace DojoTDD.Domain.Dojo_2.Services
 {
     public class AccountService : IAccountService
     {

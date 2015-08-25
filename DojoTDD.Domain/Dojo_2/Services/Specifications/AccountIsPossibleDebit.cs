@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DojoTDD.Domain.Entities;
-using DojoTDD.Domain.Services.Specifications;
+using DojoTDD.Domain.Dojo_2.Entities;
+using DojoTDD.Domain.Dojo_2.Interfaces.Specifications;
 
 namespace DojoTDD.Domain.Dojo_2.Services.Specifications
 {
