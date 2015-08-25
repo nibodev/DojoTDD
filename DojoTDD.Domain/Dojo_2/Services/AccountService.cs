@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using DojoTDD.Domain.Dojo_2.Services.Helpers;
+using DojoTDD.Domain.Dojo_2.Services.Specifications;
 using DojoTDD.Domain.Entities;
 using DojoTDD.Domain.Repositories;
 using DojoTDD.Domain.Services.Specifications;
@@ -23,40 +25,19 @@ namespace DojoTDD.Domain.Services
             BankStatementRepository = bankStatementRepository;
         }
 
-        public Transaction Transfer(Account source, Account destiny, double value)
+        public Transaction Transfer(Account accountToDebit, Account accountToCredit, double valueToTransfer)
         {
-                            
-            // Source
-            if (source == null)
-                throw new ArgumentException("Parameter source cannot be null");
-
-            if (new AccountExistsSpecification().IsSatisfiedBy(source))
-                throw new Exception("Source account not exists");
-
-            if (new AccountIsNotANegativeValue().IsSatisfiedBy(source))
-                throw new Exception("Source account don't have value enough");
-
-            // Destiny
-            if (destiny == null)
-                throw new ArgumentException("Parameter source cannot be null");
-
-            if (new AccountExistsSpecification().IsSatisfiedBy(destiny))
-                throw new Exception("Destiny account not exists");
-
-            // Value
-            if(value <= 0)
-                throw new Exception("The value should be greater than zero");
-
+            ValidateTransfer(accountToDebit, accountToCredit, valueToTransfer);
 
             using (var transScope = new TransactionScope())
             {
-                source.Debit(value);
-                destiny.Credit(value);
+                accountToDebit.Debit(valueToTransfer);
+                accountToCredit.Credit(valueToTransfer);
 
-                var transaction = new Transaction(source, destiny, value);
+                var transaction = new Transaction(accountToDebit, accountToCredit, valueToTransfer);
 
-                AccountRepository.Save(source);
-                AccountRepository.Save(destiny);
+                AccountRepository.Save(accountToDebit);
+                AccountRepository.Save(accountToCredit);
                 BankStatementRepository.RegisterTransaction(transaction);
                 transScope.Complete();
 
@@ -64,6 +45,14 @@ namespace DojoTDD.Domain.Services
             }  
                       
         }
+
+        private static void ValidateTransfer(Account accountToDebit, Account accountToCredit, double valueToTransfer)
+        {
+            if (!accountToDebit.IsPossibleDebit()) throw new Exception("This account cannot be debit");
+            if (!accountToCredit.IsPossibleCredit()) throw new Exception("This account cannot be credit");
+            if (!valueToTransfer.ValueIsValidToTransfer()) throw new Exception("The value should be greater than zero");
+        }
+        
 
     }
 }
