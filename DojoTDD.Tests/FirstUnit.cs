@@ -14,7 +14,7 @@ namespace DojoTDD.Tests
         [Test]
         public void FirstUnitTest()
         {
-            Assert.IsFalse(false);
+            Assert.IsFalse(true);
         }
     }
 }
