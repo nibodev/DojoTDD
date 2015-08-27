@@ -40,19 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dojo_2\Entities\Account.cs" />
-    <Compile Include="Dojo_2\Entities\Transaction.cs" />
-    <Compile Include="Dojo_2\Interfaces\Specifications\ISpecification.cs" />
-    <Compile Include="Dojo_2\Services\Helpers\AccountServiceHelper.cs" />
-    <Compile Include="Dojo_2\Services\Specifications\AccountIsPossibleCredit.cs" />
-    <Compile Include="Dojo_2\Services\Specifications\AccountIsPossibleDebit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dojo_2\Interfaces\Repositories\IAccountRepository.cs" />
-    <Compile Include="Dojo_2\Interfaces\Repositories\IBankStatementRepository.cs" />
-    <Compile Include="Dojo_2\Services\AccountService.cs" />
-    <Compile Include="Dojo_2\Interfaces\Services\IAccountService.cs" />
-    <Compile Include="Dojo_2\Services\Specifications\AccountExistsSpecification.cs" />
-    <Compile Include="Dojo_2\Services\Specifications\AccountIsNotANegativeValue.cs" />
+    <Compile Include="Sale.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
